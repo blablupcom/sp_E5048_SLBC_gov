@@ -103,6 +103,8 @@ for pageLink in pageLinks:
     for file_id in file_ids:
         url = 'https://docs.google.com/uc?authuser=0&id={}&export=dowload'.format(file_id)
         csv_html = urllib2.urlopen(url)
+        print url
+        print csv_html.headers
         file_name = csv_html.headers.get('Content-Disposition').split('"')[1].split('"')[0]
         csvMth = file_name.split('-')[-1].split('.')[0].strip().split()[0][:3]
         csvMth = convert_mth_strings(csvMth.upper())
